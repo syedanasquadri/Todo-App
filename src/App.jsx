@@ -9,7 +9,8 @@ const App = () => {
   function AddTodo(){
     if(!inputVal.trim()){
       console.log("first add something")
-    };
+      return;
+    }
     setTodos([...Todos,inputVal]);
     setinputVal("");
   }
@@ -31,7 +32,7 @@ const App = () => {
     <button onClick={AddTodo}>Add</button>
     <ul>
       {Todos.map((x,index) => 
-      <li key={index}>{x} <button onClick={() => DeleteTodo(index)}>Delete</button></li>)} {/*will work on the button component*/}
+      <li key={index}>{x}<button key={index} onClick={() => DeleteTodo(index)}>Delete</button></li>)}
     </ul>
   </div>
 }
