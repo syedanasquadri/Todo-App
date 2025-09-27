@@ -31,7 +31,7 @@ const App = () => {
     <button onClick={AddTodo}>Add</button>
     <ul>
       {Todos.map((x,index) => 
-      <li key={index}>{x} <button key={index} onClick={() => DeleteTodo(index)}>Delete</button></li>)}  
+      <li key={index}>{x} <button onClick={() => DeleteTodo(index)}>Delete</button></li>)} {/*will work on the button component*/}
     </ul>
   </div>
 }
