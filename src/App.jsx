@@ -11,7 +11,12 @@ const App = () => {
       alert("first add something")
       return;
     }
-    setTodos([...Todos,inputVal]);
+    const newTodo = {
+      text: inputVal,
+      createdAt: new Date().toLocaleString()
+    };
+
+    setTodos([...Todos,newTodo]);
     setinputVal("");
   }
   // function DeleteTodo(index){
@@ -31,8 +36,8 @@ const App = () => {
     />
     <button onClick={AddTodo}>Add</button>
     <ul>
-      {Todos.map((x,index) => 
-      <li key={index}>{x}{" "}<button onClick={() => DeleteTodo(index)}>Delete</button></li>)}
+      {Todos.map((todos,index) => 
+      <li key={index}>{todos.text}{" "}{todos.createdAt}<button onClick={() => DeleteTodo(index)}>Delete</button></li>)}
     </ul>
   </div>
 }
